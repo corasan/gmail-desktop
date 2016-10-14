@@ -5,9 +5,10 @@ import Login from './Login/login.js';
 
 const routes = (
   <Router>
+    <Route path="auth"/>
+    <Route path="oauth2callback"/>
     <Route name="app" path="/" component={GmailDesktop}>
       <IndexRoute component={Login}/>
-      <Route name="auth" path="auth"/>
     </Route>
   </Router>
 );

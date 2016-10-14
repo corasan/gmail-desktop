@@ -3,6 +3,9 @@ const webpack = require('webpack');
 const config = require('./webpack.config.dev');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+require('dotenv').config();
+
+const getNewToken = require('./utils/auth');
 
 const app = express();
 const compiler = webpack(config);
@@ -27,7 +30,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/auth', function(req, res) {
-  console.log('hello');
+  getNewToken(res);
 });
 
 app.listen(port, function(error) {
