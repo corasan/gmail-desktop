@@ -3,6 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
+    `webpack-hot-middleware/client?path=http://localhost:3000/__webpack_hmr`,
     './src/index.js',
     // './dist/styles.css'
   ],
@@ -11,6 +12,9 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: 'http://localhost:3000/'
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     loaders: [
       {

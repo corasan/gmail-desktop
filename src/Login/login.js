@@ -5,7 +5,10 @@ import { Router, browserHistory } from 'react-router';
 export default class Login extends Component {
   render() {
     return(
-      <h1>Login</h1>
+      <div>
+        <h1>Login</h1>
+        <a href="http://localhost:3000/auth">Authenticate</a>
+      </div>
     );
   }
 }

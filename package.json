@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "bundle": "webpack",
-    "dev": "webpack && node server.js"
+    "dev": "webpack && node server.js",
+    "hot": "node server.dev.js"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,8 @@
     "path": "^0.12.7",
     "react-hot-loader": "^3.0.0-beta.6",
     "webpack": "^1.13.2",
+    "webpack-dev-middleware": "^1.8.4",
+    "webpack-hot-middleware": "^2.13.0",
     "webpack-stream": "^3.2.0"
   }
 }
