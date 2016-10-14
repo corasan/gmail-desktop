@@ -39,17 +39,6 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/auth', function(req, res) {
-  // auth.authenticate(res);
-  fs.readFile(TOKEN_PATH, function(err, token) {
-    if (err) {
-      auth.authenticate(res);
-    } else {
-      auth.alreadyAuth(token);
-    }
-  });
-});
-
 app.get('/oauth2callback', function(req, res) {
   auth.receiveToken(res);
 });

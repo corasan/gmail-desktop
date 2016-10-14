@@ -33,7 +33,6 @@ module.exports = {
     const url = oauth2Client.generateAuthUrl({
       scope: scopes
     });
-    console.log(client_id);
     response.redirect(url);
   },
 
@@ -49,7 +48,7 @@ module.exports = {
         return;
       }
       storeToken(token);
+      response.redirect('/');
     })
-    response.end();
   }
 }
