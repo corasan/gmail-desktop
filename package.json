@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/corasan/gmail-desktop#readme",
   "dependencies": {
+    "ejs": "^2.5.2",
     "electron": "^1.4.3",
     "googleapis": "^14.0.0",
     "react": "^15.3.2",
