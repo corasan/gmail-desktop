@@ -8,8 +8,13 @@ app.set('views', '.');
 
 app.use(express.static(__dirname + '/dist'));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
+  console.log('hi from index');
   res.render('index');
+});
+
+app.get('/auth', function(req, res) {
+  console.log('hello');
 });
 
 app.listen(port, function(error) {

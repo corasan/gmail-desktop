@@ -27126,7 +27126,8 @@
 	  _react2.default.createElement(
 	    _reactRouter.Route,
 	    { name: 'app', path: '/', component: _app2.default },
-	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _login2.default })
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _login2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { name: 'auth', path: 'auth' })
 	  )
 	);
 
@@ -27224,9 +27225,18 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'h1',
+	        'div',
 	        null,
-	        'Login'
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'Login'
+	        ),
+	        _react2.default.createElement(
+	          'a',
+	          { href: 'http://localhost:3000/auth' },
+	          'Authenticate'
+	        )
 	      );
 	    }
 	  }]);

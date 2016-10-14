@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
     "bundle": "webpack",
-    "dev": "webpack && node server.js",
+    "serve": "webpack && node server.js",
     "hot": "node server.dev.js"
   },
   "repository": {

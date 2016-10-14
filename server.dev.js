@@ -26,6 +26,10 @@ app.get('*', function(req, res) {
   res.render('index');
 });
 
+app.get('auth', function(req, res) {
+  console.log('hello');
+});
+
 app.listen(port, function(error) {
   if(error) {
     console.log('Error with server.', error);

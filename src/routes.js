@@ -7,6 +7,7 @@ const routes = (
   <Router>
     <Route name="app" path="/" component={GmailDesktop}>
       <IndexRoute component={Login}/>
+      <Route name="auth" path="auth"/>
     </Route>
   </Router>
 );
