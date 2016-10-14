@@ -22,11 +22,11 @@ app.set('views', '.');
 app.use(wdm);
 app.use(webpackHotMiddleware(compiler));
 
-app.get('*', function(req, res) {
+app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('auth', function(req, res) {
+app.get('/auth', function(req, res) {
   console.log('hello');
 });
 
