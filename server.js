@@ -6,8 +6,10 @@ const port = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.set('views', '.');
 
+app.use(express.static(__dirname + '/dist'));
+
 app.get('*', function(req, res) {
-  res.send('index');
+  res.render('index');
 });
 
 app.listen(port, function(error) {
