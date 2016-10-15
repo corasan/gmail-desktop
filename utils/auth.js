@@ -32,7 +32,6 @@ module.exports = {
 
   alreadyAuth: (token) => {
     oauth2Client.setCredentials(token);
-    gmail.messages(oauth2Client);
   },
 
   receiveToken: (response) => {
