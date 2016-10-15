@@ -1,5 +1,6 @@
 const google = require('googleapis');
 const fs = require('fs');
+const gmail = require('./gmail');
 
 const OAuth2 = google.auth.OAuth2;
 
@@ -31,6 +32,8 @@ function storeToken(token) {
 module.exports = {
   authenticate: function(response) {
     const url = oauth2Client.generateAuthUrl({
+      access_type: 'offline',
+      approval_prompt: 'force',
       scope: scopes
     });
     response.redirect(url);
@@ -38,6 +41,8 @@ module.exports = {
 
   alreadyAuth: function(token) {
     oauth2Client.setCredentials(token);
+
+    gmail.messages(oauth2Client);
   },
 
   receiveToken: function(response) {
@@ -49,6 +54,6 @@ module.exports = {
       }
       storeToken(token);
       response.redirect('/');
-    })
+    });
   }
 }

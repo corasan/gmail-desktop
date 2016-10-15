@@ -7,7 +7,6 @@ export default class Login extends Component {
     return(
       <div>
         <h1>Login</h1>
-        <a href="http://localhost:3000/auth">Authenticate</a>
       </div>
     );
   }

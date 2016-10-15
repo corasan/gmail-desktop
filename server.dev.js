@@ -33,7 +33,8 @@ app.get('/', function(req, res) {
     if (err) {
       auth.authenticate(res);
     } else {
-      auth.alreadyAuth(token);
+      console.log('Token at get /:', JSON.parse(token));
+      auth.alreadyAuth(JSON.parse(token));
       res.render('index');
     }
   });
