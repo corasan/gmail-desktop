@@ -1,20 +1,11 @@
 const google = require('googleapis');
 const fs = require('fs');
 const gmail = require('./gmail');
+const c = require('./constants');
 
 const OAuth2 = google.auth.OAuth2;
 
-// Environment variables containing google credentials
-const client_id = process.env.CLIENT_ID;
-const client_secret = process.env.CLIENT_SECRET;
-const redirect_url = process.env.REDIRECT_URL;
-
-// Path to save google token
-const TOKEN_DIR = process.env.HOME || process.env.HOMEPATH;
-const TOKEN_PATH = TOKEN_DIR + '\\' + 'gmail-desktop.json';
-
-const oauth2Client = new OAuth2(client_id, client_secret, redirect_url);
-const scopes = ['https://www.googleapis.com/auth/gmail.readonly'];
+const oauth2Client = new OAuth2(c.CLIENT_ID, c.CLIENT_SECRET, c.REDIRECT_URL);
 
 // Function to save the token locally
 function storeToken(token) {
@@ -34,7 +25,7 @@ module.exports = {
     const url = oauth2Client.generateAuthUrl({
       access_type: 'offline',
       approval_prompt: 'force',
-      scope: scopes
+      scope: c.SCOPES
     });
     response.redirect(url);
   },
@@ -55,5 +46,5 @@ module.exports = {
       storeToken(token);
       response.redirect('/');
     });
-  }
+  },
 }

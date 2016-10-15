@@ -8,7 +8,7 @@ const fs = require('fs');
 const auth = require('./utils/auth');
 
 const TOKEN_DIR = process.env.HOME || process.env.HOMEPATH;
-const TOKEN_PATH = TOKEN_DIR + '\\' + 'gmail-desktop.json';
+const TOKEN_PATH = TOKEN_DIR + '\\' + 'gmail-token.json';
 
 const app = express();
 const compiler = webpack(config);
@@ -33,7 +33,6 @@ app.get('/', function(req, res) {
     if (err) {
       auth.authenticate(res);
     } else {
-      console.log('Token at get /:', JSON.parse(token));
       auth.alreadyAuth(JSON.parse(token));
       res.render('index');
     }
