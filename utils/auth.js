@@ -8,7 +8,7 @@ const OAuth2 = google.auth.OAuth2;
 const oauth2Client = new OAuth2(c.CLIENT_ID, c.CLIENT_SECRET, c.REDIRECT_URL);
 
 // Function to save the token locally
-function storeToken(token) {
+storeToken = (token) => {
   try {
     fs.mkdirSync(TOKEN_DIR);
   } catch (err) {
@@ -21,7 +21,7 @@ function storeToken(token) {
 }
 
 module.exports = {
-  authenticate: function(response) {
+  authenticate: (response) => {
     const url = oauth2Client.generateAuthUrl({
       access_type: 'offline',
       approval_prompt: 'force',
@@ -30,13 +30,12 @@ module.exports = {
     response.redirect(url);
   },
 
-  alreadyAuth: function(token) {
+  alreadyAuth: (token) => {
     oauth2Client.setCredentials(token);
-
     gmail.messages(oauth2Client);
   },
 
-  receiveToken: function(response) {
+  receiveToken: (response) => {
     const code = response.req.query.code
     oauth2Client.getToken(code, function(err, token) {
       if (err) {
